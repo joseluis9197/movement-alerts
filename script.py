@@ -49,12 +49,15 @@ if inicial > final: 
         volumen = float(info['quoteVolume'])             
         formatted_volume = await human_format(volumen)  # Aquí aplicas el await para obtener el volumen formateado             
         if volumen > 100000000 or result >= variacion_100:                 
-            await enviar_mensaje_a_telegram('LONG: '+tick)                 
-            await enviar_mensaje_a_telegram('Variacion: ' + str(result) + '%')                 
-            await enviar_mensaje_a_telegram('Volumen: ' + formatted_volume)                 
-            await enviar_mensaje_a_telegram('Precio max: ' + info['highPrice'])                 
-            await enviar_mensaje_a_telegram('Precio min: ' + info['lowPrice'])                 
-            await enviar_mensaje_a_telegram('')      
+            mensaje = (     
+                       f'LONG: {tick}\n'     
+                       f'Variacion: {result}%\n'     
+                       f'Volumen: {formatted_volume}\n'     
+                       f'Precio max: {info["highPrice"]}\n'     
+                       f'Precio min: {info["lowPrice"]}\n' 
+                       ) 
+                       await enviar_mensaje_a_telegram(mensaje)
+    
 # SHORT     
 if final > inicial:         
     result = round(((final - inicial) / inicial) * 100, 2)         
@@ -63,12 +66,14 @@ if final > inicial: 
         volumen = float(info['quoteVolume'])             
         formatted_volume = await human_format(volumen)  # Aquí aplicas el await para obtener el volumen formateado             
         if volumen > 100000000 or result >= variacion_100:                 
-            await enviar_mensaje_a_telegram('SHORT: ' + tick)                 
-            await enviar_mensaje_a_telegram('Variacion: ' + str(result) + '%')                 
-            await enviar_mensaje_a_telegram('Volumen: ' + formatted_volume)                 
-            await enviar_mensaje_a_telegram('Precio max: ' + info['highPrice'])                 
-            await enviar_mensaje_a_telegram('Precio min: ' + info['lowPrice'])                 
-            await enviar_mensaje_a_telegram('')      
+            mensaje = (     
+                       f'SHORT: {tick}\n'     
+                       f'Variacion: {result}%\n'     
+                       f'Volumen: {formatted_volume}\n'     
+                       f'Precio max: {info["highPrice"]}\n'     
+                       f'Precio min: {info["lowPrice"]}\n' 
+                       ) 
+                       await enviar_mensaje_a_telegram(mensaje)  
 # FAST     
 if knumber >= 3:         
      inicial = float(klines[knumber-2][4])         
@@ -78,13 +83,15 @@ if knumber >= 3: 
          if result >= variacionfast:                 
              info = await infoticks(tick)                 
              volumen = float(info['quoteVolume'])                 
-             formatted_volume = await human_format(volumen)  # Aquí aplicas el await para obtener el volumen formateado                
-             await enviar_mensaje_a_telegram('FAST SHORT!: ' + tick)                 
-             await enviar_mensaje_a_telegram('Variacion: ' + str(result) + '%')                 
-             await enviar_mensaje_a_telegram('Volumen: ' + formatted_volume)                 
-             await enviar_mensaje_a_telegram('Precio max: ' + info['highPrice'])                 
-             await enviar_mensaje_a_telegram('Precio min: ' + info['lowPrice'])                 
-             await enviar_mensaje_a_telegram('')      
+             formatted_volume = await human_format(volumen)  # Aquí aplicas el await para obtener el volumen formateado                                
+             mensaje = (     
+                       f'FAST SHORT!: {tick}\n'     
+                       f'Variacion: {result}%\n'     
+                       f'Volumen: {formatted_volume}\n'     
+                       f'Precio max: {info["highPrice"]}\n'     
+                       f'Precio min: {info["lowPrice"]}\n' 
+                       ) 
+                       await enviar_mensaje_a_telegram(mensaje)
 async def main():         
      while True:             
          ticks = await buscarticks()             
