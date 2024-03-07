@@ -1,5 +1,4 @@
 from binance.client import Client 
-import time 
 from telegram import Bot 
 import asyncio  
 
