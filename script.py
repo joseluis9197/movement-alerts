@@ -3,7 +3,7 @@ import time 
 from telegram import Bot 
 import asyncio  
 
-TOKEN = '' 
+TOKEN = 'tu_token' 
 bot = Bot(token=TOKEN) 
 chat_id = '@movement_alerts_binance'  
 async def enviar_mensaje_a_telegram(mensaje):     
