@@ -10,14 +10,12 @@ variacion = 5  # Variacion en los ultimos 30 minutos en porcentaje
 variacion_100 = 7  # Variacion en los ultimos 30 minutos en porcentaje si tiene menos de 100k de volumen
 variacionfast = 2  # Variacion en los ultimos 2 minutos en porcentaje
 ```
-- Antes de ejecutar el Script deberas instalar la libreria de Python de Binance `pip install python-binance`
+- Antes de ejecutar el Script deberas instalar la libreria de Python de Binance `pip install python-binance` y la de Telegram pip 'install python-telegram-bot'
 - Una vez guardado el archivo debes ejecutarlo desde una terminal de windows o de tu sistema operativo que uses con el siguiente comando.
 `python script.py`
 
-#### Contact
-- Twitter: [https://twitter.com/ElGafasTrading](https://twitter.com/ElGafasTrading "https://twitter.com/ElGafasTrading")
-- Instagram: [https://www.instagram.com/elgafastrading/](https://www.instagram.com/elgafastrading/ "https://www.instagram.com/elgafastrading/")
-- Youtube: [https://www.youtube.com/@ElGafasTrading](https://www.youtube.com/@ElGafasTrading "https://www.youtube.com/@ElGafasTrading")
+#### Canal de Prueba del Fork
+https://t.me/movementalert
 
 **Configuración Inicial:**
 
